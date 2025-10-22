@@ -23,6 +23,7 @@ public class SmsMessageEntity {
     private String phoneNumber;
 
     @Column(name = "statusEnvioEnum")
+    @Enumerated(EnumType.STRING)
     private StatusEnvioEnum statusEnvioEnum;
 
     @Column(name = "sentAt")
