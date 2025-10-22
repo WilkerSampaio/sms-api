@@ -10,6 +10,9 @@ import com.wilker.sms_api.infrastructure.repository.SmsMessageRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class SmsMessageService {
@@ -30,5 +33,19 @@ public class SmsMessageService {
             smsMessageEntity.setStatusEnvioEnum(statusEnvioEnum);
 
             return smsMessageConverter.paraDto(smsMessageRepository.save(smsMessageEntity));
+    }
+
+    public List<SmsMessageResponseDTO> BuscarRelatorioComStatusEpecifico(StatusEnvioEnum statusEnvioEnum){
+
+        LocalDateTime dataFinal = LocalDateTime.now();
+        LocalDateTime dataInicial = dataFinal.minusHours(24);
+
+        List<SmsMessageEntity> smsMessageEntityList =
+                smsMessageRepository.findBySentAtBetweenAndStatusEnvioEnum(dataInicial, dataFinal, statusEnvioEnum);
+
+        if(smsMessageEntityList.isEmpty()){
+           throw new ResourceNotFoundException("Nenhuma mensagem encontrada nas últimas 24 horas");
+        }
+        return smsMessageConverter.paraListaDTO(smsMessageEntityList);
     }
 }
