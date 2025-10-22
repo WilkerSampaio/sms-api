@@ -15,10 +15,15 @@ public class SmsMessageController {
 
     private final SmsMessageService smsMessageService;
 
-
     @PostMapping
     public ResponseEntity<SmsMessageResponseDTO> criarSMS (@RequestBody SmsMessageRequestDTO smsMessageRequestDTO){
         return ResponseEntity.ok(smsMessageService.criaSMS(smsMessageRequestDTO));
+    }
+
+    @PatchMapping
+    public ResponseEntity<SmsMessageResponseDTO> atualizarSMS(@RequestParam("id") Long id,
+                                                             @RequestParam("statusEnvioEnum") StatusEnvioEnum statusEnvioEnum){
+        return ResponseEntity.ok(smsMessageService.atualizaStatusSMS(id, statusEnvioEnum));
     }
 
 

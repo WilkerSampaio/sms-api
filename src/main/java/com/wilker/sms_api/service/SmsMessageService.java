@@ -23,8 +23,7 @@ public class SmsMessageService {
         return smsMessageConverter.paraDto(smsMessageRepository.save(smsMessageEntity));
     }
 
-
-    public SmsMessageResponseDTO atualizaStatusSms(Long id, StatusEnvioEnum statusEnvioEnum){
+    public SmsMessageResponseDTO atualizaStatusSMS(Long id, StatusEnvioEnum statusEnvioEnum){
 
         SmsMessageEntity smsMessageEntity = smsMessageRepository.findById(id).orElseThrow(
                 ()-> new ResourceNotFoundException("ID não encontrado"));
