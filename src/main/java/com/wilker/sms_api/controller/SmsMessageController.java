@@ -31,7 +31,7 @@ public class SmsMessageController {
 
     @GetMapping
     public ResponseEntity<List<SmsMessageResponseDTO>> buscarRelatórioComStatusEspecifico(@RequestParam("statusEnvioEnum") StatusEnvioEnum statusEnvioEnum){
-        return ResponseEntity.ok(smsMessageService.BuscarRelatorioComStatusEpecifico(statusEnvioEnum));
+        return ResponseEntity.ok(smsMessageService.buscarRelatorioComStatusEpecifico(statusEnvioEnum));
     }
 
 
