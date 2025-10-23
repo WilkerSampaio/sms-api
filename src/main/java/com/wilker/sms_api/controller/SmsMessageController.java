@@ -4,6 +4,7 @@ import com.wilker.sms_api.infrastructure.dto.request.SmsMessageRequestDTO;
 import com.wilker.sms_api.infrastructure.dto.response.SmsMessageResponseDTO;
 import com.wilker.sms_api.infrastructure.enums.StatusEnvioEnum;
 import com.wilker.sms_api.service.SmsMessageService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,7 @@ public class SmsMessageController {
     private final SmsMessageService smsMessageService;
 
     @PostMapping
-    public ResponseEntity<SmsMessageResponseDTO> criarSMS (@RequestBody SmsMessageRequestDTO smsMessageRequestDTO){
+    public ResponseEntity<SmsMessageResponseDTO> criarSMS (@Valid @RequestBody SmsMessageRequestDTO smsMessageRequestDTO){
         return ResponseEntity.ok(smsMessageService.criaSMS(smsMessageRequestDTO));
     }
 
