@@ -1,10 +1,9 @@
-package com.wilker.sms_api.infrastructure.controller;
+package com.wilker.sms_api.controller;
 
 import com.wilker.sms_api.infrastructure.dto.request.SmsMessageRequestDTO;
 import com.wilker.sms_api.infrastructure.dto.response.SmsMessageResponseDTO;
 import com.wilker.sms_api.infrastructure.enums.StatusEnvioEnum;
 import com.wilker.sms_api.service.SmsMessageService;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
