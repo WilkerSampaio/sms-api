@@ -30,7 +30,7 @@ public class SmsMessageController {
     }
 
     @GetMapping
-    public ResponseEntity<List<SmsMessageResponseDTO>> relatorioSMSPorStatus(@RequestParam("statusEnvioEnum") StatusEnvioEnum statusEnvioEnum){
+    public ResponseEntity<List<SmsMessageResponseDTO>> buscarRelatórioComStatusEspecifico(@RequestParam("statusEnvioEnum") StatusEnvioEnum statusEnvioEnum){
         return ResponseEntity.ok(smsMessageService.BuscarRelatorioComStatusEpecifico(statusEnvioEnum));
     }
 
