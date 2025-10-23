@@ -13,6 +13,7 @@ public interface SmsMessageConverter {
 
     @Mapping(target = "id", ignore = true)
     SmsMessageEntity paraEntity (SmsMessageRequestDTO smsMessageRequestDTO);
+
     SmsMessageResponseDTO paraDto (SmsMessageEntity smsMessageEntity);
 
     List<SmsMessageEntity> paraListaEntity(List<SmsMessageRequestDTO> smsMessageRequestDTOList);

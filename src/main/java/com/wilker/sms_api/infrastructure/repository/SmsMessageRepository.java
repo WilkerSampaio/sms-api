@@ -14,6 +14,5 @@ public interface SmsMessageRepository extends JpaRepository<SmsMessageEntity, Lo
 
     Optional<SmsMessageEntity> findById(Long id);
     List<SmsMessageEntity> findBySentAtBetweenAndStatusEnvioEnum(LocalDateTime dataInicial,
-                                                                 LocalDateTime dataFinal,
-                                                                 StatusEnvioEnum statusEnvioEnum);
+                                                                 LocalDateTime dataFinal, StatusEnvioEnum statusEnvioEnum);
 }
