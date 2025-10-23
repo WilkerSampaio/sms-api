@@ -12,11 +12,10 @@ import java.util.List;
 public interface SmsMessageConverter {
 
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "sentAt", ignore = true)
     SmsMessageEntity paraEntity (SmsMessageRequestDTO smsMessageRequestDTO);
 
     SmsMessageResponseDTO paraDto (SmsMessageEntity smsMessageEntity);
-
-    List<SmsMessageEntity> paraListaEntity(List<SmsMessageRequestDTO> smsMessageRequestDTOList);
 
     List<SmsMessageResponseDTO> paraListaDTO(List<SmsMessageEntity> smsMessageEntityList);
 }

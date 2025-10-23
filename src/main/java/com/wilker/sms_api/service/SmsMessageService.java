@@ -21,7 +21,12 @@ public class SmsMessageService {
     private final SmsMessageConverter smsMessageConverter;
 
     public SmsMessageResponseDTO criaSMS(SmsMessageRequestDTO smsMessageRequestDTO){
-        SmsMessageEntity smsMessageEntity = smsMessageConverter.paraEntity(smsMessageRequestDTO);
+
+        SmsMessageEntity smsMessageEntity = new SmsMessageEntity();
+
+        smsMessageEntity.setPhoneNumber(smsMessageRequestDTO.phoneNumber());
+        smsMessageEntity.setStatusEnvioEnum(smsMessageRequestDTO.statusEnvioEnum());
+        smsMessageEntity.setSentAt(LocalDateTime.now());
 
         return smsMessageConverter.paraDto(smsMessageRepository.save(smsMessageEntity));
     }
