@@ -34,8 +34,4 @@ public class SmsMessageController {
         return ResponseEntity.ok(smsMessageService.buscarRelatorioComStatusEpecifico(statusEnvioEnum));
     }
 
-
-
-
-
 }
